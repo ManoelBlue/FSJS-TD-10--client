@@ -53,3 +53,5 @@ const CourseDetail = () => {
         </main>
     )
 }
+
+export default CourseDetail;
