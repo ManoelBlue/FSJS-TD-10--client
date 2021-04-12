@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import Data from './Data';
 
 const Context = React.createContext(); 
 
 export class Provider extends Component {
     constructor() {
         super();
+        this.data = new Data();
     }
 
     render() {
         const value = {
+            data: this.data,
             actions: {
                 signIn: this.signIn,
                 signOut: this.signOut
@@ -22,10 +25,20 @@ export class Provider extends Component {
     }
 
 
-    signIn = () => {
+    signIn = async (username, password) => {
+        const user = await this.data.getUser(username, password);
+        if (user !== null) {
+            this.setState(() => {
+                return {
+                    authenticatedUser: user,
+                };
+            });
+        }
+        return user;
     }
 
     signOut = () => {
+        this.setState({ authenticatedUser: null });
     }
 }
 
