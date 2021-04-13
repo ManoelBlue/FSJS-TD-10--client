@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 // Context
-// import withContext from './Context';
+import withContext from './Context';
 import PrivateRoute from './PrivateRoute';
 
 // Components:
@@ -15,7 +15,10 @@ import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 
-// Stylesheets:
+// Components with Context:
+const CourseDetailWithContext =  withContext(CourseDetail);
+const CreateCourseWithContext =  withContext(CreateCourse);
+const UserSignUpWithContext =  withContext(UserSignUp);
 
 const App = () => {
   useEffect(() => {
@@ -31,11 +34,11 @@ const App = () => {
         <main>
           <Switch>
             <Route exact to="/" component={Courses} />
-            <PrivateRoute path="/courses/create" component={CreateCourse} />
+            <PrivateRoute path="/courses/create" component={CreateCourseWithContext} />
             <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
-            <Route to="/courses/:id" component={CourseDetail} />
+            <Route to="/courses/:id" component={CourseDetailWithContext} />
             <Route to="signin" component={UserSignIn} />
-            <Route to="signup" component={UserSignUp} />
+            <Route to="signup" component={UserSignUpWithContext} />
             <Route to="signout" component={UserSignOut} />
           </Switch>
         </main>
