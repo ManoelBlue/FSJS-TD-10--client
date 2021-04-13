@@ -11,7 +11,7 @@ const Courses = () => {
     useEffect(() => {
         fetch(`${config.apiBaseUrl}/courses`)
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => setCourses(data));
             // .then(data => setCourses(data));
     })
 
