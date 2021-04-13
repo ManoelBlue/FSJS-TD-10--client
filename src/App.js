@@ -16,7 +16,6 @@ import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 
 // Stylesheets:
-import './App.css';
 
 const App = () => {
   useEffect(() => {
