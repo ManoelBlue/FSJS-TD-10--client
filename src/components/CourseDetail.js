@@ -1,7 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
+import config from '../config';
 
 const CourseDetail = () => {
-    const [course, setCourse] = useState();
+    // const [course, setCourse] = useState({});
+    const location = useLocation();
+    const courseId = location.pathname;
+
+    // Fetch course:
+    useEffect(() => {
+        fetch(`${config.apiBaseUrl}/courses/${courseId}`)
+        .then(res => res.json())
+        .then(data => console.log(data, location));
+    });
 
     return (
         <main>
