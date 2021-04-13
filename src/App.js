@@ -25,10 +25,10 @@ const App = () => {
   });
 
   return (
-    <div className="App">
+    <Router>
         <Header></Header>
 
-        <Router>
+        <main>
           <Switch>
             <Route exact to="/" component={Courses} />
             <PrivateRoute path="/courses/create" component={CreateCourse} />
@@ -38,8 +38,8 @@ const App = () => {
             <Route to="signup" component={UserSignUp} />
             <Route to="signout" component={UserSignOut} />
           </Switch>
-        </Router>
-    </div>
+        </main>
+    </Router>
   );
 }
 
