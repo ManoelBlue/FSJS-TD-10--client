@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const CourseDetail = () => {
-
+    const [course, setCourse] = useState();
 
     return (
         <main>
