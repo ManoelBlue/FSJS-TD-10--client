@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Form from './Form';
 
@@ -25,7 +25,7 @@ class UserSignUp extends Component {
 
     submit = () => {
         const {context} = this.props;
-        const {firstname, lastname, emailAddress, password, confirmPassword} = this.state;
+        const {firstname, lastname, password} = this.state;
 
         // Create new user:
         const username = `${firstname} ${lastname}`;
@@ -54,7 +54,7 @@ class UserSignUp extends Component {
     }
 
     render() {
-        const {firstname, lastname, emailAddress, password, confirmPassword} = this.state;
+        const {firstname, lastname, emailAddress, password, confirmPassword, errors} = this.state;
 
         return (
             <div className="form--centered">
@@ -63,7 +63,7 @@ class UserSignUp extends Component {
                     cancel={this.cancel}
                     errors={errors}
                     submit={this.submit}
-                    submitButtonText="Sign In"
+                    submitButtonText="Sign Up"
                     elements={() => (
                         <React.Fragment>
                             <label htmlFor="firstname">First Name</label>
@@ -108,6 +108,7 @@ class UserSignUp extends Component {
                                 placeholder="Confirm Password" />
                         </React.Fragment>
                 )} />
+                <p>Already have a user account? Click here to <Link to="/signin">sign in</Link>!</p>
             </div>
         )
     }

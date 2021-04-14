@@ -31,7 +31,7 @@ const App = () => {
 
         <main>
           <Switch>
-            {/* <Route exact to="/" component={CoursesWithContext} /> */}
+            <Route exact to="/" component={CoursesWithContext} />
             <PrivateRoute path="/courses/create" component={CreateCourseWithContext} />
             <PrivateRoute path="/courses/:id/update" component={UpdateCourseWithContext} />
             <Route to="/courses/:id" component={CourseDetailWithContext} />

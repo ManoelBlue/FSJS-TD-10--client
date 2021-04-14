@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorsDisplay from './ErrorsDisplay';
 
 const Form = (props) => {
     const {
@@ -23,9 +24,7 @@ const Form = (props) => {
         <div>
             <ErrorsDisplay errors={errors} />
             <form onSubmit={handleSubmit}>
-                <div className="main--flex">
-                    {elements()}
-                </div>
+                {elements()}
                 <button className="button" type="submit">{submitButtonText}</button>
                 <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
