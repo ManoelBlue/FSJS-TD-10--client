@@ -23,11 +23,11 @@ const Form = (props) => {
         <div>
             <ErrorsDisplay errors={errors} />
             <form onSubmit={handleSubmit}>
-                {elements()}
-                <div className="pad-bottom">
+                <div className="main--flex">
+                    {elements()}
+                </div>
                 <button className="button" type="submit">{submitButtonText}</button>
                 <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
-                </div>
             </form>
         </div>
     );
