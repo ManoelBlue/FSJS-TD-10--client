@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 // Context
@@ -16,30 +16,28 @@ import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
 
 // Components with Context:
-const CourseDetailWithContext =  withContext(CourseDetail);
+const CoursesWithContext = withContext(Courses);
 const CreateCourseWithContext =  withContext(CreateCourse);
+const UpdateCourseWithContext =  withContext(UpdateCourse);
+const CourseDetailWithContext =  withContext(CourseDetail);
+const UserSignInWithContext =  withContext(UserSignIn);
 const UserSignUpWithContext =  withContext(UserSignUp);
+const UserSignOutWithContext =  withContext(UserSignOut);
 
 const App = () => {
-  useEffect(() => {
-    fetch('http://localhost:5000/api/courses')
-      .then(res => res.json())
-      .then(data => console.log(data));
-  });
-
   return (
     <Router>
         <Header></Header>
 
         <main>
           <Switch>
-            <Route exact to="/" component={Courses} />
+            {/* <Route exact to="/" component={CoursesWithContext} /> */}
             <PrivateRoute path="/courses/create" component={CreateCourseWithContext} />
-            <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
+            <PrivateRoute path="/courses/:id/update" component={UpdateCourseWithContext} />
             <Route to="/courses/:id" component={CourseDetailWithContext} />
-            <Route to="signin" component={UserSignIn} />
+            <Route to="signin" component={UserSignInWithContext} />
             <Route to="signup" component={UserSignUpWithContext} />
-            <Route to="signout" component={UserSignOut} />
+            <Route to="signout" component={UserSignOutWithContext} />
           </Switch>
         </main>
     </Router>

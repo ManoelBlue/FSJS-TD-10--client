@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-// import CourseDetail from './CourseDetail';
 
 import config from '../config';
 
@@ -12,8 +11,9 @@ const Courses = () => {
         fetch(`${config.apiBaseUrl}/courses`)
             .then(res => res.json())
             .then(data => setCourses(data));
-            // .then(data => setCourses(data));
-    })
+    }, []);
+
+    console.log(courses);
 
     // Map over courses
     const coursesList = courses.map((course, index) => (

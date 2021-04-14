@@ -1,6 +1,18 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 
 const CreateCourse = () => {
+    // States:
+    // const [title, setTitle] = useState("");
+    // const [description, setDescription] = useState("");
+    // const [estimatedTime, setTime] = useState("");
+    // const [materialsNeeded, setMaterials] = useState("");
+    // const [author, setAuthor] = useState("");
+
+    // Methods:
+    // const submit = () => {
+
+    // }
+
     return (
         <main>
             <div className="wrap">
